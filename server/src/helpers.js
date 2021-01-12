@@ -42,10 +42,7 @@ const findAndUpdateNode = (node, gameState, path, line) => {
             gameState[i].pathEnd = path
             gameState[i].lineThru = line
         }
-    }
-    // let pathEndpoints = getPathEndpoints(gameState)
-    // console.log(pathEndpoints);
-    
+    } 
 }
 
 const sendPayload = (id, player1, newLine, msg, message) => {
@@ -88,25 +85,6 @@ const createGameState = () => {
     return gameState
 }
 
-// const min1MakePos = (num) => {
-//     if(num === 0){
-//         return num
-//     }
-//     if(num < 0){
-//         num = num * -1
-//         // return num += 1
-//     }
-//     num -= 1
-//     return num
-// }
-
-// let calcDiff = (startNode, endNode) => {
-//     let xDiff = startNode.x - endNode.x
-//     let yDiff = startNode.y - endNode.y
-//     xDiff = min1MakePos(xDiff)
-//     yDiff = min1MakePos(yDiff)
-//     return {xDiff, yDiff}
-// }
 const updateLineThrus = (thruNodes, gameState) => {
     for (let i = 0; i < thruNodes.length; i++) {
         findAndUpdateNode(thruNodes[i], gameState, false, true)

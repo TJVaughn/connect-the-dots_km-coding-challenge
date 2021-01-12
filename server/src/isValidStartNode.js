@@ -28,17 +28,8 @@ const isValidStartNode = (gameState, startNode, clickedNode) => {
         response.message = ''
         return response
     }    
-    //If the current starting node is not null it is invalid. It must be an end node. 
     console.log(startNode);
-    // if(!startNode.x && !startNode.y) {
-    //     return true
-    // }
-    // console.log("the statement above is false");
-
-    
     console.log(gameState);
-    //If the clicked node is not a path end it is invalid
-    // let pathEndpoints = getPathEndpoints(gameState)
     let pathEndpoints = getPointsByAttrs(gameState, true, false)
     console.log(pathEndpoints)
     for(let i = 0; i < pathEndpoints.length; i++){

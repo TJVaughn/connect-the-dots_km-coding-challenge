@@ -1,5 +1,4 @@
 const getThruNodes = (start, end) => {
-    // console.log(start.x, start.y, end.x, end.y);
     let diff = {
         x: start.x - end.x,
         y: start.y - end.y 
@@ -22,8 +21,6 @@ const getThruNodes = (start, end) => {
         for (let i = 0; i < yVals.length; i++) {
             nodes.push({ x: start.x, y: yVals[i] })
         }
-        // console.log("nodes")
-        // console.log(nodes)
         return nodes
     } if(diff.y === 0){
         if (diff.x < 0) {
@@ -97,9 +94,3 @@ function getVals(cap, start, add) {
 }
 
 module.exports = getThruNodes
-
-// else {
-//     for (let i = 0; i < yVals.length; i++) {
-//         nodes.push({ x: start.x, y: yVals[i] })
-//     }
-// }

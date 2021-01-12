@@ -83,19 +83,3 @@ const checkLineThruLine = (startNode, endNode, movesMade) => {
 }
 
 module.exports = checkLineThruLine
-
-
-// for (let i = 0; i < movesMade.length; i++) {
-//     //if the start nodes are same
-//     //and end nodes are same
-//     //we need to check the start to thruNode[0], from thruNode[0] to thruNode[1] and thruNode[1] to endNode 
-//     // console.log(movesMade[i])
-//     if (
-//         ((movesMade[i].start.x === nodesToCheck[0].x && movesMade[i].start.y === nodesToCheck[0].y)
-//             && (movesMade[i].end.x === nodesToCheck[1].x && movesMade[i].end.y === nodesToCheck[1].y))
-//         || ((movesMade[i].start.x === nodesToCheck[1].x && movesMade[i].start.y === nodesToCheck[1].y)
-//             && (movesMade[i].end.x === nodesToCheck[0].x && movesMade[i].end.y === nodesToCheck[0].y))
-//     ) {
-//         return true
-//     }
-// }
