@@ -13,7 +13,7 @@ After downloading the project:
 
 cd into the directory
 
-To start the server locally run:
+To start the server locally, first you must make sure client/public/init.js and set the hostname to "ws://localhost:8080" then in the terminal run:
 
 "yarn dev" 
 
