@@ -48,7 +48,3 @@ ws as my WebSocket library to communcate with the client from the server.
 ## Other Notes
 
 **For clarity purposes**, I normally wouldn't include the "config/dev.env" directory to github, as it would normally hold sensitive information like API keys, JWT signatures...etc.
-
-If you would like to visit the project, it is hosted at https://connect-the-dots-km.herokuapp.com/
-
-Give it about 30 seconds to spin up.
