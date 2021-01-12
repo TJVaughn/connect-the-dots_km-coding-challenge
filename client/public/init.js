@@ -8,8 +8,10 @@ const node = document.getElementById('app');
 // https://technical-assessment.konicaminoltamarketplace.com
 const app = Elm.Main.embed(node, {
     api: 'WebSocket',
-    hostname: 'ws://localhost:8080',
+    hostname: 'https://connect-the-dots-km.herokuapp.com/',
 });
+//https://connect-the-dots-km.herokuapp.com/
+//ws://localhost:8080
 
 app.ports.startTimer.subscribe((int) => {
     setTimeout(() => {
