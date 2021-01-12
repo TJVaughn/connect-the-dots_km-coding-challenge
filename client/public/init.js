@@ -8,7 +8,7 @@ const node = document.getElementById('app');
 // https://technical-assessment.konicaminoltamarketplace.com
 const app = Elm.Main.embed(node, {
     api: 'WebSocket',
-    hostname: 'https://connect-the-dots-km.herokuapp.com/',
+    hostname: 'https://connect-the-dots-km.herokuapp.com',
 });
 //https://connect-the-dots-km.herokuapp.com/
 //ws://localhost:8080

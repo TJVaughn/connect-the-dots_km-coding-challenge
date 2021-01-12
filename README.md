@@ -15,7 +15,7 @@ cd into the directory
 
 To start the server locally run:
 
-"yarn start" 
+"yarn dev" 
 
 And visit http://localhost:8080/ in your browser
 
