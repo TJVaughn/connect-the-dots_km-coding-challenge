@@ -1,4 +1,4 @@
-const { isValidDiagonal, isValidHorizontal } = require('./isValidEndNode')
+const { isValidDiagonal, isValidHorizontal } = require('./endNodeHelpers')
 
 const gameOver = (pathEndpoints, gameState, movesMade) => {
 

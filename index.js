@@ -1,38 +1,33 @@
 const express = require('express')
-const app = express()
-const port = process.env.PORT
 const path = require('path')
 const http = require('http')
-const server = http.createServer(app)
 const WebSocket = require('ws')
-const { getPointsByAttrs, findAndUpdateNode, sendPayload, updateMovesMade,
-    createGameState, updateLineThrus} = require('./server/src/helpers')
+const { getPointsByAttrs, findAndUpdateNode, sendPayload, updateMovesMade, createGameState, updateLineThrus } = require('./server/src/helpers')
 const isValidStartNode = require('./server/src/isValidStartNode')
-const {isValidEndNode }= require('./server/src/isValidEndNode')
-// const updateLineThrus = require('./server/src/updateLineThrus')
+const isValidEndNode = require('./server/src/isValidEndNode')
 const gameOver = require('./server/src/gameOver')
 const getThruNodes = require('./server/src/getThruNodes')
 
+const app = express()
+const server = http.createServer(app)
+const port = process.env.PORT || 8080
 const publicDirPath = path.join(__dirname, './client/public')
 app.use(express.static(publicDirPath))
 const wss = new WebSocket.Server({server})
 
-
-//create fresh game state
-let startNode = {x: null, y: null}
-let gameState = createGameState()
-let movesMade = []
+//Must define gameState outside of initialize
+let gameState
+let movesMade
+let startNode 
 
 wss.on('connection', (ws) => {
     ws.on('message', (m) => {
         m = JSON.parse(m)
         console.log("Client: ")
-        console.log(m);
+        console.log(m)
 
-        //initialize
+        //when the browser initializes, refresh game state
         if(m.msg === "INITIALIZE") {
-            console.log(startNode);
-            console.log(gameState)
             gameState = createGameState()
             movesMade = []
             startNode = { x: null, y: null }
@@ -40,7 +35,9 @@ wss.on('connection', (ws) => {
                 sendPayload(1, 1, null, "INITIALIZE", "Awaiting Player 1's Move", null)
             )
         } 
-        let startNodeRes = isValidStartNode(gameState, startNode, m.body)
+
+        let startNodeRes = isValidStartNode(gameState, movesMade, startNode, m.body)
+
         if(startNodeRes.bool){
             startNode.x = m.body.x
             startNode.y = m.body.y

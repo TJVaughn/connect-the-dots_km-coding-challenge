@@ -11,15 +11,15 @@ const createPoint = (x, y, pathEnd, lineThru) => {
     return obj
 }
 
-const getPointsByAttrs = (gameState, pE, both) => {
+const getPointsByAttrs = (gameState, pathEnd, lineThru) => {
     let points = []
-    if(both){
+    if(pathEnd && lineThru){
         for(let i = 0; i < gameState.length; i++){
             if(gameState[i].pathEnd || gameState[i].lineThru){
                 points.push(gameState[i])
             }
         }
-    } else if(pE){
+    } else if(pathEnd){
         for(let i = 0; i < gameState.length; i++){
             if(gameState[i].pathEnd){
                 points.push(gameState[i])
